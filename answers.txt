@@ -3,10 +3,12 @@ Binary search
 
 **Question**
 How many comparisons does firstIndexOf use at most for an array of:
-a) 10 elements?
-b) 100 elements?
-c) 1,000 elements?
-d) 1,000,000 elements?
+a) 10 elements? 3
+b) 100 elements? 7
+c) 1,000 elements? 10
+d) 1,000,000 elements? 20
+
+log2 * n
 
 Hint: You can count the comparisons using a debugger to step through your program line-by-line.
 
@@ -17,6 +19,9 @@ How many comparisons would firstIndexOf need for 1,000,000,000,000 elements?
 (This is way too big for your computer's memory!)
 Justify your answer.
 
+30! Either you can just take the number 1 000 000 000 and just count the number of times you have to divide until
+you get to 1-ish. Or just take log2 * 1 000 000 000 and you get the answer (ish).
+
 TODO
 
 Appendix: general information
@@ -25,15 +30,22 @@ Appendix: general information
 **Question**
 How many hours did you spend on the assignment?
 
+I am not completely finished, but I have spent probably around 13-15 hours.
+
 TODO
 
 **Questions**
 Which of the three spoilers did you use?
 
+All of them.
+
 TODO
 
 **Question**
 Do you know of any bugs or limitations?
+
+I still have not figured out the "first index" method completely, so the bug in my programme is that it does not return -1 if
+the int/string is not in the array.
 
 TODO
 
@@ -42,14 +54,25 @@ Did you collaborate with any other students on this lab?
 If so, write with whom and in what way you collaborated.
 Also list any resources (including the web) you have used in creating your design.
 
+I have worked mostly alone, but the last day (friday) I went to the TA session to get help with my problem. I was collaborating a bit
+with my friend Stefan then, and i also asked the TA's for help.
+
+I have used the course material OPENDSA, google, the older videos from course material.
+
 TODO
 
 **Question**
 Did you encounter any serious problems?
 
+I was stuck on how the comparator.compare() worked for many hours, and when i had "fixed" the recursive binarysearch it did not work
+with int/strings that are not in the list. I kind of know what I have to fix, but still having issues implementing it..
+
 TODO
 
 **Question**
 What is your feedback on this assignment?
+
+I have learned a lot which is great, but I've been stuck on the firstindexof issue for.. I don't know how many hours.
+Maybe more hints about that one or something :)
 
 TODO

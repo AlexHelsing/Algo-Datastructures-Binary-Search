@@ -9,13 +9,84 @@ public class BinarySearch {
 
   // Check if the array `a` contains the given search key.
   public static <T> boolean contains(T[] a, T key, Comparator<T> comparator) {
-    throw new UnsupportedOperationException("TODO");
+
+    int startA = 0;
+    int endA = a.length -1;
+
+    while(startA <= endA){
+
+      int mid = (startA + endA) / 2;
+      int c = comparator.compare(a[mid], key);
+
+      if(c < 0){
+        startA = mid +1;
+      }
+      if(c > 0){
+        endA = mid -1;
+      }
+      if(c == 0){
+        return true;
+      }
+    }
+    // if num can't be found in array, it will return -1.
+    return false;
   }
 
   // Return the *first position* of `key` in `a`, or -1 if `key` does not occur.
   public static <T> int firstIndexOf(T[] a, T key, Comparator<T> comparator) {
-    throw new UnsupportedOperationException("TODO");
+
+    int low = 0;
+    int high = a.length;
+    int middle = (low + high) / 2;
+    int c = comparator.compare(a[middle], key);
+
+    if (low >= high) {
+      return middle;
+    }
+    if(c == 0 && a[middle-1] == key){
+      return firstIndexOf(a, key, low, middle-1,  comparator);
+    }
+    else if (c > 0) {
+      return firstIndexOf(a, key, low, middle-1,  comparator);
+    }
+    else if (c < 0) {
+      return firstIndexOf(a, key,middle+1, high, comparator);
+    }
+    return -1;
   }
+
+  //If c < 0, then key is greater than a[middle]
+  //If c = 0, then x is equal to y.
+  //If c > 0, then a[middle] is greater than key.
+
+  public static <T> int firstIndexOf(T[] a, T key, int low, int high, Comparator<T> comparator) {
+
+    int middle = (low + high) / 2;
+    int c = comparator.compare(a[middle], key);
+
+    if (low >= high) {
+      return middle;
+    }
+    if(c == 0 && a[middle-1] != key){
+      return middle;
+    }
+    if(c == 0 && a[middle-1] == key){
+      return firstIndexOf(a, key, low, middle-1,  comparator);
+    }
+    else if (c > 0) {
+      return firstIndexOf(a, key, low, middle-1,  comparator);
+    }
+    else if (c < 0) {
+      return firstIndexOf(a, key,middle+1, high, comparator);
+    }
+    return -1;
+  }
+
+  //If c < 0, then key is greater than a[middle]
+  //If c = 0, then x is equal to y.
+  //If c > 0, then a[middle] is greater than key.
+
+
 
   // Versions of the above functions that use the natural ordering of the type T.
   // T needs to be "comparable" (i.e., implement the interface Comparable).
