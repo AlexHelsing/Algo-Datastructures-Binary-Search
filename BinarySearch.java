@@ -41,11 +41,13 @@ public class BinarySearch {
     int c = comparator.compare(a[middle], key);
 
     if (low >= high) {
-      return middle;
+      return -1;
     }
-    if(c == 0 && a[middle-1] == key){
-      return firstIndexOf(a, key, low, middle-1,  comparator);
+    if (c == 0) {
+      int left = firstIndexOf(a, key, low, middle - 1, comparator);
+      return left != -1 ? left : middle;
     }
+
     else if (c > 0) {
       return firstIndexOf(a, key, low, middle-1,  comparator);
     }
@@ -61,26 +63,28 @@ public class BinarySearch {
 
   public static <T> int firstIndexOf(T[] a, T key, int low, int high, Comparator<T> comparator) {
 
+    if (low > high || low == a.length) {
+      return -1;
+    }
+
     int middle = (low + high) / 2;
     int c = comparator.compare(a[middle], key);
 
-    if (low >= high) {
-      return middle;
-    }
-    if(c == 0 && a[middle-1] != key){
-      return middle;
-    }
-    if(c == 0 && a[middle-1] == key){
-      return firstIndexOf(a, key, low, middle-1,  comparator);
+    // If key matches with mid, then the result index will be saved in the variable leftMatch (left as leftmost found), and it will keep
+    // doing the recursion. If no more matches are found, it will return left else it will return middle since that
+    // is the first match in the array
+    if (c == 0) {
+      int leftMatch = firstIndexOf(a, key, low, middle - 1, comparator);
+      return leftMatch != -1 ? left : middle;
     }
     else if (c > 0) {
-      return firstIndexOf(a, key, low, middle-1,  comparator);
+      return firstIndexOf(a, key, low, middle - 1, comparator);
     }
-    else if (c < 0) {
-      return firstIndexOf(a, key,middle+1, high, comparator);
+    else {
+      return firstIndexOf(a, key, middle + 1, high, comparator);
     }
-    return -1;
   }
+
 
   //If c < 0, then key is greater than a[middle]
   //If c = 0, then x is equal to y.
@@ -115,5 +119,4 @@ public class BinarySearch {
     assert firstIndexOf(b, "zebra") == -1;
     assert firstIndexOf(b, "bee") == -1;
   }
-
 }
