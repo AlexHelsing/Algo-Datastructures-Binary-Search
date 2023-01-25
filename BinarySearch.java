@@ -75,7 +75,7 @@ public class BinarySearch {
     // is the first match in the array
     if (c == 0) {
       int leftMatch = firstIndexOf(a, key, low, middle - 1, comparator);
-      return leftMatch != -1 ? left : middle;
+      return leftMatch != -1 ? leftMatch : middle;
     }
     else if (c > 0) {
       return firstIndexOf(a, key, low, middle - 1, comparator);
