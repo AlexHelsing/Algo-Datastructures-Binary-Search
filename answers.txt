@@ -47,6 +47,8 @@ Do you know of any bugs or limitations?
 I still have not figured out the "first index" method completely, so the bug in my programme is that it does not return -1 if
 the int/string is not in the array.
 
+update: Managed to fix all the issues i think.
+
 TODO
 
 **Question**
@@ -59,6 +61,9 @@ with my friend Stefan then, and i also asked the TA's for help.
 
 I have used the course material OPENDSA, google, the older videos from course material.
 
+update: I had solved all the issues, but then the tests did not work on an empty array. I removed the
+first recursion method and went straight to helper method, for some reason i still dont know it solved it.
+
 TODO
 
 **Question**
@@ -66,6 +71,9 @@ Did you encounter any serious problems?
 
 I was stuck on how the comparator.compare() worked for many hours, and when i had "fixed" the recursive binarysearch it did not work
 with int/strings that are not in the list. I kind of know what I have to fix, but still having issues implementing it..
+
+update: Yes, the first index array was a pain. Took me a long time to solve it, since i managed to fix one problem
+but then another issue came up.
 
 TODO
 

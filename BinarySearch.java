@@ -34,32 +34,8 @@ public class BinarySearch {
 
   // Return the *first position* of `key` in `a`, or -1 if `key` does not occur.
   public static <T> int firstIndexOf(T[] a, T key, Comparator<T> comparator) {
-
-    int low = 0;
-    int high = a.length;
-    int middle = (low + high) / 2;
-    int c = comparator.compare(a[middle], key);
-
-    if (low >= high) {
-      return -1;
-    }
-    if (c == 0) {
-      int left = firstIndexOf(a, key, low, middle - 1, comparator);
-      return left != -1 ? left : middle;
-    }
-
-    else if (c > 0) {
-      return firstIndexOf(a, key, low, middle-1,  comparator);
-    }
-    else if (c < 0) {
-      return firstIndexOf(a, key,middle+1, high, comparator);
-    }
-    return -1;
+    return firstIndexOf(a, key, 0, a.length-1, comparator);
   }
-
-  //If c < 0, then key is greater than a[middle]
-  //If c = 0, then x is equal to y.
-  //If c > 0, then a[middle] is greater than key.
 
   public static <T> int firstIndexOf(T[] a, T key, int low, int high, Comparator<T> comparator) {
 
@@ -85,11 +61,9 @@ public class BinarySearch {
     }
   }
 
-
   //If c < 0, then key is greater than a[middle]
   //If c = 0, then x is equal to y.
   //If c > 0, then a[middle] is greater than key.
-
 
 
   // Versions of the above functions that use the natural ordering of the type T.
