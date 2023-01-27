@@ -22,6 +22,8 @@ Justify your answer.
 30! Either you can just take the number 1 000 000 000 and just count the number of times you have to divide until
 you get to 1-ish. Or just take log2 * 1 000 000 000 and you get the answer (ish).
 
+Update: I saw its 12 zeroes, not 9. It should be 40 then I think
+
 TODO
 
 Appendix: general information
@@ -31,6 +33,8 @@ Appendix: general information
 How many hours did you spend on the assignment?
 
 I am not completely finished, but I have spent probably around 13-15 hours.
+
+Update: Not even sure, but probably 20-30 :S
 
 TODO
 
